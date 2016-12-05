@@ -172,6 +172,22 @@ class SplitPane extends Component {
         }
     }
 
+    _forcePrimaryPaneHeight(paneHeight) {
+      const ref = this.props.primary === 'first' ? this.pane1 : this.pane2;
+      let newSize;
+      if (ref) {
+          newSize = paneHeight;
+          ref.setState({
+              size: newSize,
+          });
+          if (paneHeight !== this.state.draggedSize) {
+              this.setState({
+                  draggedSize: newSize,
+              });
+          }
+      }
+    }
+
     render() {
         const { split, allowResize } = this.props;
         const disabledClass = allowResize ? '' : 'disabled';
