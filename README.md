@@ -2,6 +2,9 @@
 
 Split-Pane component built with [React](http://facebook.github.io/react), can be split vertically or horizontally.
 
+```
+npm install react-split-pane
+```
 
 [![Build Status](https://img.shields.io/travis/tomkp/react-split-pane/master.svg?style=flat-square)](https://travis-ci.org/tomkp/react-split-pane)
 [![Coverage Status](https://img.shields.io/coveralls/tomkp/react-split-pane/master.svg?style=flat-square)](https://coveralls.io/r/tomkp/react-split-pane)
@@ -35,7 +38,7 @@ By default it is the left pane for 'vertical' SplitPane and the top pane for 'ho
 If you want to keep size of the second pane and let the first pane to shrink or grow by browser window dimensions,
 set SplitPane prop `primary` to `second`. In case of 'horizontal' SplitPane the height of bottom pane remains the same.
 
-Resizing can be disabled by passing the `enableResizing` prop as `false`. Resizing is enabled by default.
+Resizing can be disabled by passing the `allowResize` prop as `false` (`allowResize={false}`). Resizing is enabled by default.
 
 You can also set the size of the pane using the `size` prop. Note that a size set through props ignores the `defaultSize` and `minSize` properties.
 
@@ -147,10 +150,10 @@ Thanks to ```background-clip: padding-box;``` for making transparent borders pos
         border-left: 5px solid rgba(0, 0, 0, 0.5);
         border-right: 5px solid rgba(0, 0, 0, 0.5);
     }
-    Resizer.disabled {
+    .Resizer.disabled {
       cursor: not-allowed;
     }
-    Resizer.disabled:hover {
+    .Resizer.disabled:hover {
       border-color: transparent;
     }
 
