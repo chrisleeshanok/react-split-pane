@@ -162,6 +162,16 @@ class SplitPane extends React.Component {
         }
     }
 
+    _forceRecalculateHeight() {
+        const { onDragFinished } = this.props;
+        const { draggedSize } = this.state;
+
+        if (typeof onDragFinished === 'function') {
+            onDragFinished(draggedSize);
+        }
+        this.setState({ active: false });
+    }
+
     _forcePrimaryPaneHeight(paneHeight) {
       const ref = this.props.primary === 'first' ? this.pane1 : this.pane2;
       let newSize;
